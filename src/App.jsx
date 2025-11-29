@@ -20,9 +20,9 @@ import SupplierLogin from "./pages/SupplierLogin";
 import SupplierDashboard from "./pages/SupplierDashboard";
 import PartnerUs from "./pages/PartnerUs";
 
-/* Supplier verify + kyc page */
+/* Supplier verify + KYC page */
 import SupplierVerify from "./supplier/Verify";
-import SupplierKyc from "./supplier/Kyc";
+import SupplierKyc from "./supplier/KYC";
 
 import RequireSupplierAuth from "./supplier/RequireAuth";
 
