@@ -1,0 +1,21 @@
+/* Force same centered inner width for header, hero and footer (persistent) */
+:root { --site-inner-max: 1100px; --site-inner-pad: 1rem; }
+
+header > .inner,
+header > .container,
+header > .site-inner,
+.site-header > .container,
+.hero > .inner,
+.hero .header-content,
+.hero > .container,
+footer > .inner,
+footer > .container,
+.site-footer > .container {
+  max-width: var(--site-inner-max) !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--site-inner-pad) !important;
+  padding-right: var(--site-inner-pad) !important;
+  box-sizing: border-box !important;
+}
