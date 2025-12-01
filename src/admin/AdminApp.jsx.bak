@@ -1,0 +1,7 @@
+@@
+ // inside your admin router <Routes> add a route for bulk upload:
++import AdminBulkUpload from "./AdminBulkUpload";
+@@
+   <Route path="products" element={<Products />} />
++  <Route path="bulk" element={<AdminBulkUpload />} />
+   <Route path="orders" element={<Orders />} />
