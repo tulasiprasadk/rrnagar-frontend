@@ -23,8 +23,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies (try ci, fallback to install)
+        # npm ci is better but can fail with platform-specific lockfile mismatches;
+        # the fallback ensures the job continues on the runner.
+        run: npm ci || npm install
 
       - name: Build
         run: npm run build
