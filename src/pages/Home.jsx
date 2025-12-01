@@ -1,4 +1,7 @@
 import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 import vchase from '../assets/ads/vchase.png';
 import rrnagar from '../assets/ads/rrnagar.png';
 import gephyr from '../assets/ads/gephyr.png';
@@ -15,14 +18,18 @@ const ads = [
 
 export default function Home() {
   return (
-    <main className="home-page">
-      <section className="ad-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(160px,1fr))', gap: '12px' }}>
-        {ads.map(a => (
-          <a key={a.id} href={a.href} className="ad-item" style={{ display: 'block', overflow: 'hidden' }}>
-            <img src={a.src} alt={a.alt} style={{ width: '100%', height: 'auto', display: 'block' }} />
-          </a>
-        ))}
-      </section>
-    </main>
+    <>
+      <Header />
+      <main className="home-page" style={{ padding: '1rem' }}>
+        <section className="ad-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(160px,1fr))', gap: 12 }}>
+          {ads.map(a => (
+            <a key={a.id} href={a.href} className="ad-item" style={{ display: 'block', overflow: 'hidden' }}>
+              <img src={a.src} alt={a.alt} style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </a>
+          ))}
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }
