@@ -1,12 +1,13 @@
-<<<<<<< HEAD
-!.vscode/launch.json
-=======
+﻿!.vscode/launch.json
+
 # Node
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+pnpm-lock.yaml
+package-lock.json
 
 # Build outputs
 dist/
@@ -21,23 +22,10 @@ out/
 .DS_Store
 Thumbs.db
 
-# Env files
+# Environment
 .env
 .env.*.local
-.env.local
 
-# Logs and backups
-*.log
-*.bak
-*.zip
-
-# Uploads / runtime data
-public/uploads/
-products.json
-images.json
-
-# Optional editor and IDE files
-.idea/
-*.sublime-project
-*.sublime-workspace
->>>>>>> 8fe648cf651f53ec20a1c4542761c7e9423db611
+# Coverage / test output
+coverage/
+coverage/*
