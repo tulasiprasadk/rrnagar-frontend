@@ -1,5 +1,4 @@
-﻿# Local VSCode launch config we keep in repo
-!.vscode/launch.json
+﻿!.vscode/launch.json
 
 # Node
 node_modules/
@@ -8,7 +7,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 pnpm-lock.yaml
-package-lock.json
 
 # Build outputs
 dist/
