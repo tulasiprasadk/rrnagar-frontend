@@ -1,4 +1,5 @@
-﻿!.vscode/launch.json
+﻿# Local VSCode launch config we keep in repo
+!.vscode/launch.json
 
 # Node
 node_modules/
@@ -25,7 +26,12 @@ Thumbs.db
 # Environment
 .env
 .env.*.local
+.env.local
+!.env.example
 
 # Coverage / test output
 coverage/
 coverage/*
+
+# Misc
+npm-install-output.txt
