@@ -1,37 +1,70 @@
-﻿import React from "react";
-import { Navigate, useLocation } from "react-router-dom";
+﻿import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 /**
- * DEBUG RequireAuth: logs token/kyc and path to console to trace redirect behavior.
- * Overwrites src/supplier/RequireAuth.jsx (backup created if present).
+ * RequireAuth wrapper:
+ * - Checks for a token, optionally verifies it with an API.
+ * - If not authenticated, redirects to /supplier/login.
+ * - All catch blocks log the error (non-empty).
+ *
+ * Usage:
+ * <RequireAuth>
+ *   <YourProtectedComponent />
+ * </RequireAuth>
  */
 export default function RequireAuth({ children }) {
+  const navigate = useNavigate();
   const location = useLocation();
-  const token = typeof window !== "undefined" ? localStorage.getItem("rrnagar_supplier_token") : null;
-  const kycDone = typeof window !== "undefined" ? localStorage.getItem("rrnagar_supplier_kyc_done") === "1" : false;
+  const [checking, setChecking] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
 
-  // debug log
-  try {
-    // eslint-disable-next-line no-console
-    console.info("[RequireAuth DEBUG] path=", location.pathname, " token=", token ? "present" : "null", " kycDone=", kycDone, " rawFlag=", typeof window !== 'undefined' ? localStorage.getItem('rrnagar_supplier_kyc_done') : null);
-  } catch (e) {}
+  useEffect(() => {
+    let mounted = true;
 
-  const onKycPage = location.pathname === "/supplier/kyc" || location.pathname.startsWith("/supplier/kyc");
-  const onLoginPage = location.pathname === "/supplier-login" || location.pathname.startsWith("/supplier-login");
+    async function verify() {
+      try {
+        const token = localStorage.getItem('supplier_token');
+        if (!token) {
+          if (mounted) setAuthenticated(false);
+          return;
+        }
 
-  // If not authenticated, send to login
-  if (!token) {
-    return <Navigate to="/supplier-login" state={{ from: location }} replace />;
+        // Optionally verify token with backend
+        const resp = await fetch('/api/supplier/verify-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        });
+
+        if (!resp.ok) {
+          if (mounted) setAuthenticated(false);
+          return;
+        }
+
+        const data = await resp.json();
+        if (mounted) setAuthenticated(Boolean(data?.valid));
+      } catch (err) {
+        console.error('Error verifying supplier token:', err);
+        if (mounted) setAuthenticated(false);
+      } finally {
+        if (mounted) setChecking(false);
+      }
+    }
+
+    verify();
+
+    return () => {
+      mounted = false;
+    };
+  }, [navigate, location]);
+
+  if (checking) {
+    return <div style={{ padding: 20 }}>Checking authentication…</div>;
   }
 
-  // If authenticated but KYC incomplete and not already on login/kyc, redirect to KYC
-  if (!kycDone && !onKycPage && !onLoginPage) {
-    // debug mark before redirect
-    try {
-      // eslint-disable-next-line no-console
-      console.warn("[RequireAuth DEBUG] Redirecting to /supplier/kyc");
-    } catch (e) {}
-    return <Navigate to="/supplier/kyc" state={{ from: location }} replace />;
+  if (!authenticated) {
+    // preserve the current location for post-login redirect
+    navigate('/supplier/login', { state: { from: location }, replace: true });
+    return null;
   }
 
   return <>{children}</>;

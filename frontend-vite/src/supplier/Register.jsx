@@ -1,47 +1,91 @@
-import React, { useState } from "react";
-import { post } from "../api/client";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
- * Supplier registration — triggers OTP verification on register.
- * Backend should send OTP to mobile/email and return a temporary token or redirect flow.
+ * Minimal Register component for suppliers.
+ * - Uses `res` (response) instead of leaving it unused.
+ * - If you don't need the response, you can `await` the call without assignment.
  */
-export default function SupplierRegister() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [busy, setBusy] = useState(false);
+export default function Register() {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  function updateField(key) {
+    return (e) => setForm((s) => ({ ...s, [key]: e.target.value }));
+  }
 
   async function handleRegister(e) {
     e.preventDefault();
-    setBusy(true);
+    setError('');
+    setLoading(true);
+
     try {
-      // POST to register; backend should send OTP and return a response
-      const res = await post("/supplier/register", { name, email, phone, password }, "public");
-      // Expect backend to send message: "otp_sent" or similar
-      alert("Registration successful. An OTP has been sent to your phone/email. Please verify to complete registration.");
-      // Optionally redirect to a /supplier/verify-otp page (not implemented here)
-      window.location.href = "/supplier/verify"; // implement verify page if you want
+      const resp = await fetch('/api/supplier/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const res = await resp.json(); // res is used below
+      if (!resp.ok) {
+        setError(res?.message || 'Registration failed');
+        return;
+      }
+
+      // Example: registration successful — redirect to login or dashboard
+      navigate('/supplier/login');
     } catch (err) {
-      alert(err.message || "Registration failed");
+      console.error('Registration error:', err);
+      setError('An error occurred while registering.');
     } finally {
-      setBusy(false);
+      setLoading(false);
     }
   }
 
   return (
-    <main style={{ padding: 24, maxWidth: 560 }}>
-      <h1>Supplier registration</h1>
-      <form onSubmit={handleRegister}>
-        <input placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+    <main style={{ padding: 20 }}>
+      <h1>Supplier Register</h1>
+      <form onSubmit={handleRegister} style={{ maxWidth: 420 }}>
         <div>
-          <button type="submit" disabled={busy} style={{ padding: "8px 14px", background: "#ffd600", border: "none" }}>
-            {busy ? "Registering..." : "Register"}
+          <label>
+            Name
+            <input value={form.name} onChange={updateField('name')} required />
+          </label>
+        </div>
+
+        <div style={{ marginTop: 8 }}>
+          <label>
+            Email
+            <input
+              type="email"
+              value={form.email}
+              onChange={updateField('email')}
+              required
+            />
+          </label>
+        </div>
+
+        <div style={{ marginTop: 8 }}>
+          <label>
+            Password
+            <input
+              type="password"
+              value={form.password}
+              onChange={updateField('password')}
+              required
+            />
+          </label>
+        </div>
+
+        <div style={{ marginTop: 12 }}>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Registering…' : 'Register'}
           </button>
         </div>
+
+        {error && <div style={{ color: 'crimson', marginTop: 12 }}>{error}</div>}
       </form>
     </main>
   );
