@@ -1,0 +1,42 @@
+﻿name: CI Debug - Jest config
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (allow failures)
+        run: npm ci || true
+
+      - name: Show node & npm version
+        run: |
+          node -v
+          npm -v
+
+      - name: Show Jest resolved config
+        run: |
+          echo "pwd: $(pwd)"
+          echo "Listing repo root files:"
+          ls -la
+          echo "Contents of jest config (if exists):"
+          if [ -f jest.config.cjs ]; then cat jest.config.cjs; fi
+          if [ -f jest.config.js ]; then cat jest.config.js; fi
+          echo "Show which config Jest loads and full config (may error):"
+          npx jest --showConfig || true
+
+      - name: Print any testRunner occurrences in repo
+        run: |
+          grep -R --line-number "testRunner" || true
+          grep -R --line-number "jest-circus" || true
