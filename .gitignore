@@ -1,39 +1,4 @@
-# Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Build outputs
+﻿node_modules/
 dist/
-build/
-.vite/
-out/
-
-# VScode
-.vscode/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Env files
 .env
-.env.*.local
-.env.local
-
-# Logs and backups
-*.log
-*.bak
-*.zip
-
-# Uploads / runtime data
-public/uploads/
-products.json
-images.json
-
-# Optional editor and IDE files
-.idea/
-*.sublime-project
-*.sublime-workspace
+.DS_Store
