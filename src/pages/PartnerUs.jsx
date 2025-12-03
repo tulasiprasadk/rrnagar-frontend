@@ -25,7 +25,7 @@ export default function PartnerUs() {
       setError(err);
       return;
     }
-    // Placeholder: replace with API call to submit partnership requests
+    // : replace with API call to submit partnership requests
     setSent(true);
   }
 

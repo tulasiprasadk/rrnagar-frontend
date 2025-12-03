@@ -11,14 +11,14 @@ export default function Privacy() {
       <ul>
         <li>We collect contact info (phone / email) when you submit forms.</li>
         <li>We use cookies only for essential site features and analytics.</li>
-        <li>You may request deletion of your data by contacting us at hello@rrnagar.local.</li>
+        <li>You may request deletion of your data by contacting us at contact@rrnagar.com.</li>
       </ul>
 
       <h2>Data retention</h2>
       <p>We retain data only as long as needed for the purpose it was collected or as required by law.</p>
 
       <h2>Contact</h2>
-      <p>Questions about privacy? Email: <a href="mailto:hello@rrnagar.local">hello@rrnagar.local</a></p>
+      <p>Questions about privacy? Email: <a href="mailto:contact@rrnagar.com">contact@rrnagar.com</a></p>
     </main>
   );
 }

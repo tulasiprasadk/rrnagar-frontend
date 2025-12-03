@@ -98,7 +98,7 @@ export default function SupplierVerify() {
 
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Enter OTP"
+          ="Enter OTP"
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
           style={{ width: "100%", padding: 8, marginBottom: 8 }}

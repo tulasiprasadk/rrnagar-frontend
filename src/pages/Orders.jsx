@@ -1,4 +1,4 @@
-ï»¿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchOrdersForBuyer } from "../api/payments";
 import { getBuyerId } from "../utils/session";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ export default function Orders() {
       .finally(() => setLoading(false));
   }, [buyerId]);
 
-  if (loading) return <main style={{ padding: 20 }}>Loading ordersâ€¦</main>;
+  if (loading) return <main style={{ padding: 20 }}>Loading orders…</main>;
   if (!orders || orders.length === 0) return <main style={{ padding: 20 }}>No orders found.</main>;
 
   return (
@@ -27,7 +27,7 @@ export default function Orders() {
           <li key={o.id} style={{ borderBottom: "1px solid #eee", padding: 12 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div>
-                <strong>Order #{o.id}</strong> â€” â‚¹{o.total} â€” {o.status || o.paymentMethod}
+                <strong>Order #{o.id}</strong> — ?{o.total} — {o.status || o.paymentMethod}
               </div>
               <div>
                 <Link to={`/orders/${o.id}`}>View details</Link>

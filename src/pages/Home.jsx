@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="home-container">
 
-      {/* HERO */}
+      
       <section className="hero">
         <div className="hero-image">
           <img src={heroImg} alt="RR Nagar" />
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* POPULAR CATEGORIES */}
+      
       <section className="popular-cat">
         <h2>Popular Categories</h2>
         <div className="cat-grid">
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ADVERTISEMENT LOGO SLIDER */}
+      
       <section className="ad-section" aria-label="Promotions">
         <div className="ad-track" role="list">
           {ads.map((ad) => (
@@ -54,7 +54,7 @@ export default function Home() {
             </a>
           ))}
 
-          {/* Duplicate for infinite scroll */}
+          
           {ads.map((ad) => (
             <a
               key={ad.id + "-dup"}
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DISCOVER RR NAGAR */}
+      
       <section className="explore-section">
         <h2>Discover RR Nagar</h2>
 

@@ -1,4 +1,4 @@
-﻿import { post, put, get } from "./client";
+import { post, put, get } from "./client";
 
 /**
  * createOrder(payload) - generic order creation

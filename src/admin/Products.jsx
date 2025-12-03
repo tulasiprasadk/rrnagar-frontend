@@ -50,8 +50,8 @@ export default function Products() {
       {err && <div style={{ color: "#ffb4b4" }}>{err}</div>}
 
       <form onSubmit={addProduct} style={{ marginBottom: 12 }}>
-        <input placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} style={{ padding: 8, marginRight: 8 }} />
-        <input placeholder="Price" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} style={{ padding: 8, marginRight: 8 }} />
+        <input ="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} style={{ padding: 8, marginRight: 8 }} />
+        <input ="Price" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} style={{ padding: 8, marginRight: 8 }} />
         <button type="submit" disabled={busy} style={{ padding: "8px 12px", background: "#ffd600", border: "none", borderRadius: 6 }}>
           {busy ? "Adding…" : "Add Product"}
         </button>

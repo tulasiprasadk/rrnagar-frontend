@@ -1,4 +1,4 @@
-ï»¿import { post } from "../api/client";
+import { post } from "../api/client";
 
 const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 const IS_LOCAL_PROXY = API_BASE === "/api" || API_BASE === "";
@@ -19,7 +19,7 @@ export async function adminLogin({ username, password } = {}) {
       localStorage.setItem(TOKEN_KEY, token);
       return { token, ok: true };
     }
-    const err = new Error("Invalid credentials â€” use admin / password for local dev");
+    const err = new Error("Invalid credentials — use admin / password for local dev");
     err.status = 401;
     throw err;
   }
@@ -52,7 +52,7 @@ export function setAuthToken(token) {
 }
 
 /**
- * logout() â€” compatibility name used by some components
+ * logout() — compatibility name used by some components
  */
 export async function logout() {
   setAuthToken(null);

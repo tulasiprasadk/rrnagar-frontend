@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import ProductCard from './ProductCard'; // adjust path if your ProductCard is elsewhere
 import { get } from '../api/client'; // adjust path if your API client is elsewhere
 
@@ -32,7 +32,7 @@ export default function ProductList() {
   }, [fetchProducts]);
 
   if (loading) {
-    // simple skeleton placeholders to reduce layout shift
+    // simple skeleton s to reduce layout shift
     const skeletons = Array.from({ length: 6 }).map((_, i) => (
       <div
         key={i}

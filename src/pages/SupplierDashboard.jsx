@@ -115,7 +115,7 @@ export default function SupplierDashboard() {
                     Supplier price: {formatPrice(it.supplier_price)} • Platform price (forecast): <strong>{formatPrice(it.platform_price)}</strong>
                   </div>
                 </div>
-                <div>{/* Edit/delete UI kept simple; not shown here */}</div>
+                <div></div>
               </li>
             ))}
           </ul>
@@ -125,8 +125,8 @@ export default function SupplierDashboard() {
       <section style={{ marginTop: 18 }}>
         <h2>Add Listing</h2>
         <form onSubmit={addListing} style={{ maxWidth: 520 }}>
-          <input placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-          <input placeholder="Price (numeric or ₹...)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} style={{ width: "100%", padding: 8, marginBottom: 8 }} />
+          <input ="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+          <input ="Price (numeric or ₹...)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} style={{ width: "100%", padding: 8, marginBottom: 8 }} />
           <div>
             <button type="submit" disabled={busy} style={{ padding: "8px 14px", background: "#ffd600", border: "none", cursor: "pointer" }}>
               {busy ? "Adding..." : "Add Listing"}

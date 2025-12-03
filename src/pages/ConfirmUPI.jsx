@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchOrder, updateOrder } from "../api/payments";
 
@@ -58,13 +58,13 @@ export default function ConfirmUPI() {
     }
   }
 
-  if (!order) return <main style={{ padding: 20 }}>Loading order…</main>;
+  if (!order) return <main style={{ padding: 20 }}>Loading order�</main>;
 
   return (
     <main style={{ padding: 20 }}>
       <h2>Confirm UPI payment</h2>
       <p>Order id: {order.id}</p>
-      <p>Total: ₹{order.total}</p>
+      <p>Total: ?{order.total}</p>
       <p>Scan or use the UPI details below to pay:</p>
       <div style={{ marginBottom: 10 }}>
         <img src={order.upiQrUrl || order.upiUri ? (order.upiQrUrl || `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(order.upiUri)}`) : ""} alt="UPI QR" style={{ width: 200, height: 200 }} />

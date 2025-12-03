@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 
@@ -38,10 +38,10 @@ export default function LoginPhone() {
       <form onSubmit={handleSend} style={{ display: "grid", gap: 8, maxWidth: 420 }}>
         <label>
           Phone number
-          <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="e.g. +919845036535 or 9845036535" />
+          <input value={phone} onChange={(e) => setPhone(e.target.value)} ="e.g. +919845036535 or 9845036535" />
         </label>
         <div style={{ display: "flex", gap: 8 }}>
-          <button type="submit" disabled={sending} style={{ padding: "8px 12px" }}>{sending ? "Sending…" : "Send OTP"}</button>
+          <button type="submit" disabled={sending} style={{ padding: "8px 12px" }}>{sending ? "Sending�" : "Send OTP"}</button>
           <button type="button" onClick={() => { setPhone(""); setMsg(""); }} style={{ padding: "8px 12px" }}>Clear</button>
         </div>
         {msg && <div style={{ color: "#333" }}>{msg}</div>}

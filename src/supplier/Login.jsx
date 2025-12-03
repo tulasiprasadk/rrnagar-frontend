@@ -34,8 +34,8 @@ export default function SupplierLogin({ onLogin }) {
     <main style={{ padding: 24, maxWidth: 560 }}>
       <h1>Supplier login</h1>
       <form onSubmit={handleSubmit}>
-        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+        <input ="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+        <input ="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
         <div>
           <button type="submit" disabled={busy} style={{ padding: "8px 14px", background: "#ffd600", border: "none" }}>
             {busy ? "Signing in..." : "Sign in"}

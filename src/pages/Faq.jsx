@@ -4,7 +4,7 @@ export default function Faq() {
   return (
     <main style={{ padding: 24 }}>
       <h1>FAQs</h1>
-      <p>Frequently asked questions placeholder.</p>
+      <p>Frequently asked questions .</p>
     </main>
   );
 }

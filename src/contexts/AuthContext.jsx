@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Very small client-side auth: stores token in localStorage.
@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
       setToken(fakeToken);
       return { ok: true };
     }
-    throw new Error('Invalid credentials — use admin / password for local dev');
+    throw new Error('Invalid credentials � use admin / password for local dev');
   }
 
   const value = { token, login, logout, isAuthenticated: !!token };

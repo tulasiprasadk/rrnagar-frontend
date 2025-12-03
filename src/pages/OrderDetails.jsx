@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchOrder } from "../api/payments";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getBuyerId } from "../utils/session";
@@ -19,14 +19,14 @@ export default function OrderDetails() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <main style={{ padding: 20 }}>Loading order…</main>;
+  if (loading) return <main style={{ padding: 20 }}>Loading order�</main>;
   if (!order) return <main style={{ padding: 20 }}>Order not found.</main>;
 
   const isOwner = order.buyerId === buyerId;
   return (
     <main style={{ padding: 20 }}>
       <h2>Order #{order.id}</h2>
-      <div><strong>Total:</strong> ₹{order.total}</div>
+      <div><strong>Total:</strong> ?{order.total}</div>
       <div><strong>Payment method:</strong> {order.paymentMethod}</div>
       <div><strong>Status:</strong> {order.status || (order.paid ? "paid" : "pending")}</div>
 

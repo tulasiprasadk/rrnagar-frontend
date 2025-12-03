@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createOrder, createPiInvoice } from "../api/payments";
 import { getSettings as fetchSettings } from "../api/adminSettings";
 import { useNavigate } from "react-router-dom";
@@ -104,7 +104,7 @@ export default function PaymentOptions({ items = [], total = 0 }) {
       </div>
 
       <div style={{ marginBottom: 12 }}>
-        <strong>Total: </strong> ₹{totalRounded}
+        <strong>Total: </strong> ?{totalRounded}
       </div>
 
       {error && <div style={{ color: "crimson", marginBottom: 8 }}>{error}</div>}
@@ -119,7 +119,7 @@ export default function PaymentOptions({ items = [], total = 0 }) {
                 <div><strong>Phone (admin):</strong> {phone || "Not configured"}</div>
               </>
             ) : (
-              <div>Loading UPI settings…</div>
+              <div>Loading UPI settings�</div>
             )}
           </div>
 

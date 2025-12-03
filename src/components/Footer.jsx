@@ -1,63 +1,76 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="rn-footer" role="contentinfo">
-
-      {/* ================= TOP FOOTER ================= */}
-      <div className="rn-footer-inner">
-
-        {/* LEFT SIDE */}
-        <div className="footer-left">
-
-          <div className="footer-left-row">
-            <strong>Contact us:</strong> Phone: +91 9844007900
-          </div>
-
-          <div className="footer-left-row">
-            <span><strong>Email:</strong> hello@rrnagar.local</span>
-            <span><strong>Address:</strong> RR Nagar, Bengaluru</span>
-          </div>
-
+    <footer style={{ backgroundColor: "#f2f2f2", padding: "24px 16px" }}>
+      <div style={footerContainer}>
+        {/* Left: Contact Info */}
+        <div style={leftColumn}>
+          <strong>Contact Us:</strong><br />
+          📞 <a href="https://wa.me/919844007900" style={contactLink}>98440 07900</a><br />
+          ✉️ <a href="mailto:namaste@rrnagar.com" style={contactLink}>namaste@rrnagar.com</a>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="footer-right">
-
-          <div className="footer-right-row">
-            <strong>Follow us:</strong>
-            <span className="social-pill fb">FB</span>
-            <span className="social-pill tw">TW</span>
-            <span className="social-pill ig">IG</span>
-          </div>
-
-          <div className="footer-right-row footer-heart">
-            Made with <span className="heart-red">♥</span> for the community
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* ================= BOTTOM FOOTER ================= */}
-      <div className="rn-footer-bottom">
-        <div className="rn-footer-bottom-inner">
-          <span>© {year} RR Nagar. All rights reserved.</span>
-
-          <span className="bottom-links">
-            <Link to="/privacy">Privacy Notices</Link>
-            <Link to="/terms">Terms of Use</Link>
-            <Link to="/help">Help</Link>
-            <Link to="/supplier">Supplier</Link>
-            <Link to="/partner-us">Partner Us</Link>
-          </span>
+        {/* Right: Navigation Links */}
+        <div style={rightColumn}>
+          <nav aria-label="Footer links">
+            <Link to="/partner" style={linkStyle}>Partner Us</Link>
+            <span style={sep}>•</span>
+            <Link to="/blog" style={linkStyle}>Blog</Link>
+            <span style={sep}>•</span>
+            <Link to="/privacy" style={linkStyle}>Privacy Notice</Link>
+            <span style={sep}>•</span>
+            <Link to="/terms" style={linkStyle}>Conditions of Use</Link>
+            <span style={sep}>•</span>
+            <Link to="/supplier-login" style={linkStyle}>Supplier</Link>
+          </nav>
         </div>
       </div>
 
+      <div style={{ marginTop: 16, fontSize: 13, color: "#666", textAlign: "center" }}>
+        &copy; 2025 RR Nagar. All rights reserved.
+      </div>
     </footer>
   );
 }
+
+const footerContainer = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-between",
+  alignItems: "flex-start",
+  gap: "24px",
+};
+
+const leftColumn = {
+  flex: "1",
+  minWidth: "220px",
+  fontSize: 14,
+  color: "#444",
+};
+
+const rightColumn = {
+  flex: "1",
+  minWidth: "220px",
+  textAlign: "right",
+  fontSize: 14,
+};
+
+const linkStyle = {
+  margin: "0 6px",
+  color: "inherit",
+  textDecoration: "none",
+  fontWeight: 500,
+};
+
+const sep = {
+  margin: "0 4px",
+  color: "#999",
+};
+
+const contactLink = {
+  color: "#0077cc",
+  textDecoration: "none",
+  fontWeight: 500,
+};

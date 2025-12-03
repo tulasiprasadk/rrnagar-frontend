@@ -18,7 +18,7 @@ export default function AdminApp() {
     <Routes>
       <Route path="login" element={<AdminLogin />} />
 
-      {/* Protected admin routes, wrapped by layout */}
+      
       <Route
         element={
           <RequireAdminAuth>

@@ -35,7 +35,7 @@ export default function QuickCartSidebar({ isOpen, onClose, cartItems = [], onCh
         flexDirection: "column",
       }}
     >
-      {/* Header */}
+      
       <div
         style={{
           padding: "16px",
@@ -60,7 +60,7 @@ export default function QuickCartSidebar({ isOpen, onClose, cartItems = [], onCh
         </button>
       </div>
 
-      {/* Cart Items */}
+      
       <div style={{ flex: 1, overflowY: "auto", padding: "16px" }}>
         {cartItems.length === 0 ? (
           <div style={{ textAlign: "center", marginTop: "40px", color: "#777" }}>
@@ -87,7 +87,7 @@ export default function QuickCartSidebar({ isOpen, onClose, cartItems = [], onCh
         )}
       </div>
 
-      {/* Footer */}
+      
       {cartItems.length > 0 && (
         <div
           style={{

@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 
 /**
  * AddressForm
@@ -29,31 +29,31 @@ export default function AddressForm({ initial = {}, onSave = () => {} }) {
     <form onSubmit={handleSubmit} style={{ display: "grid", gap: 8, maxWidth: 700 }}>
       <label>
         Full name (recipient)
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+        <input value={name} onChange={(e) => setName(e.target.value)} ="Name" />
       </label>
       <label>
         Phone
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Mobile number" />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} ="Mobile number" />
       </label>
       <label>
         Address line 1
-        <input value={line1} onChange={(e) => setLine1(e.target.value)} placeholder="House, building, street" />
+        <input value={line1} onChange={(e) => setLine1(e.target.value)} ="House, building, street" />
       </label>
       <label>
         Address line 2 (optional)
-        <input value={line2} onChange={(e) => setLine2(e.target.value)} placeholder="Area, colony, etc." />
+        <input value={line2} onChange={(e) => setLine2(e.target.value)} ="Area, colony, etc." />
       </label>
       <label>
         Landmark
-        <input value={landmark} onChange={(e) => setLandmark(e.target.value)} placeholder="Nearby landmark" />
+        <input value={landmark} onChange={(e) => setLandmark(e.target.value)} ="Nearby landmark" />
       </label>
       <label>
         City
-        <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="City" />
+        <input value={city} onChange={(e) => setCity(e.target.value)} ="City" />
       </label>
       <label>
         Pincode
-        <input value={pincode} onChange={(e) => setPincode(e.target.value)} placeholder="Pincode" />
+        <input value={pincode} onChange={(e) => setPincode(e.target.value)} ="Pincode" />
       </label>
 
       <div style={{ display: "flex", gap: 8 }}>

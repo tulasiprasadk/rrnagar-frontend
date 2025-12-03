@@ -9,7 +9,7 @@ export default function CitySearchBar() {
       <div className="search-bar">
         <input 
           type="text" 
-          placeholder="Search groceries, flowers, services, restaurants…" 
+          ="Search groceries, flowers, services, restaurants…" 
         />
         <button>Search</button>
       </div>

@@ -1,4 +1,4 @@
-﻿import { get, post, put } from "./client";
+import { get, post, put } from "./client";
 
 /**
  * getSettings()

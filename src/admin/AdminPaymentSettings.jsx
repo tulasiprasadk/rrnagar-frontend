@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getSettings, updateSettings } from "../api/adminSettings";
 
 /**
@@ -35,7 +35,7 @@ export default function AdminPaymentSettings() {
   }
 
   if (loading || !settings) {
-    return <main style={{ padding: 20 }}>Loading settings…</main>;
+    return <main style={{ padding: 20 }}>Loading settings�</main>;
   }
 
   return (

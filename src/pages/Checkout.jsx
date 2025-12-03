@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PaymentOptions from "../components/PaymentOptions";
 import { fetchOrder } from "../api/payments";
 
@@ -53,10 +53,10 @@ export default function Checkout() {
           <h3>Items</h3>
           {cart.length === 0 ? <div>No items in cart</div> : cart.map((it) => (
             <div key={it.id} style={{ borderBottom: "1px solid #eee", padding: 8 }}>
-              {it.title} — ₹{it.price} × {it.qty}
+              {it.title} � ?{it.price} � {it.qty}
             </div>
           ))}
-          <div style={{ marginTop: 12 }}><strong>Total: ₹{total}</strong></div>
+          <div style={{ marginTop: 12 }}><strong>Total: ?{total}</strong></div>
         </section>
         <aside style={{ width: 360 }}>
           <PaymentOptions items={cart} total={total} onSuccess={handleSuccess} />

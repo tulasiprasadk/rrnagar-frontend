@@ -1,4 +1,4 @@
-﻿import { get, post, put, del } from "../api/client";
+import { get, post, put, del } from "../api/client";
 
 /**
  * Normalize responses that might be either:

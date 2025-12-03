@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 // ...existing imports
 import React from "react";
 import { useQuickCart } from "../context/QuickCartContext";
@@ -10,11 +10,11 @@ export default function ProductCard({ product }) {
     <div className="product-card">
       <img src={product.image} alt={product.name} style={{ width: "100%", height: 160, objectFit: "cover" }} />
       <h3>{product.name}</h3>
-      <div>₹{product.price}</div>
+      <div>?{product.price}</div>
       <div style={{ display: "flex", gap: 8 }}>
         <button onClick={() => addItem(product, 1)}>Add</button>
-        {/* optionally a message button per product */}
-        {/* <MessageButton recipientId={product.sellerId} recipientName={product.sellerName} /> */}
+        
+        
       </div>
     </div>
   );
@@ -70,7 +70,7 @@ export default function ProductCard({ product = {} }) {
             }}
           />
         ) : (
-          <div style={{ color: '#999', fontSize: 24 }}>📦</div>
+          <div style={{ color: '#999', fontSize: 24 }}>??</div>
         )}
       </div>
 
@@ -93,7 +93,7 @@ export default function ProductCard({ product = {} }) {
               fontSize: 13,
             }}
             onClick={() => {
-              // placeholder action — replace with real handler if needed
+              //  action � replace with real handler if needed
               alert(`Selected: ${name}`);
             }}
             type="button"

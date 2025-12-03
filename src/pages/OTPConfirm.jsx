@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 
@@ -38,7 +38,7 @@ export default function OTPConfirm() {
       <form onSubmit={handleVerify} style={{ display: "grid", gap: 8, maxWidth: 420 }}>
         <label>
           OTP
-          <input value={code} onChange={(e) => setCode(e.target.value)} placeholder="123456" />
+          <input value={code} onChange={(e) => setCode(e.target.value)} ="123456" />
         </label>
         <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />

@@ -33,10 +33,10 @@ export default function SupplierRegister() {
     <main style={{ padding: 24, maxWidth: 560 }}>
       <h1>Supplier registration</h1>
       <form onSubmit={handleRegister}>
-        <input placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
-        <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+        <input ="Full name" value={name} onChange={(e) => setName(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+        <input ="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+        <input ="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
+        <input ="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "100%", padding: 8, marginBottom: 8 }} required />
         <div>
           <button type="submit" disabled={busy} style={{ padding: "8px 14px", background: "#ffd600", border: "none" }}>
             {busy ? "Registering..." : "Register"}

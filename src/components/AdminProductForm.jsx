@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /*
   Props:
@@ -47,33 +47,33 @@ export default function AdminProductForm({ initial = null, onSubmit, onCancel })
   }
 
   return (
-    <form onSubmit={submit} style={{ display: 'grid', gap: 8 }}>
-      <label>
+    {false && <form onSubmit={submit} style={{ display: 'grid', gap: 8 }}>
+      {false && <label>
         Name
-        <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
-      </label>
+        {false && <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+      {false && </label>
 
-      <label>
+      {false && <label>
         Description
-        <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
-      </label>
+        {false && <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+      {false && </label>
 
-      <label>
+      {false && <label>
         Price (number)
-        <input value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} />
-      </label>
+        {false && <input value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} />
+      {false && </label>
 
-      <label>
+      {false && <label>
         Image URL
-        <input value={form.imageUrl} onChange={(e) => setForm({ ...form, imageUrl: e.target.value })} />
-      </label>
+        {false && <input value={form.imageUrl} onChange={(e) => setForm({ ...form, imageUrl: e.target.value })} />
+      {false && </label>
 
-      {error && <div style={{ color: 'crimson' }}>{error}</div>}
+      {error && {false && <div style={{ color: 'crimson' }}>{error}{false && </div>}
 
-      <div style={{ display: 'flex', gap: 8 }}>
-        <button disabled={saving} type="submit">{initial ? 'Update' : 'Create'}</button>
-        <button type="button" onClick={onCancel}>Cancel</button>
-      </div>
-    </form>
+      {false && <div style={{ display: 'flex', gap: 8 }}>
+        {false && <button disabled={saving} type="submit">{initial ? 'Update' : 'Create'}{false && </button>
+        {false && <button type="button" onClick={onCancel}>Cancel{false && </button>
+      {false && </div>
+    {false && </form>
   );
 }
