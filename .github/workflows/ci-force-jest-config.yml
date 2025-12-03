@@ -1,0 +1,36 @@
+﻿name: CI - Force Jest Config
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ chore/fix-jest-config ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-optional
+
+      - name: Show files and jest configs (debug)
+        run: |
+          echo "pwd: $(pwd)"
+          ls -la
+          if [ -f jest.config.cjs ]; then echo "Found jest.config.cjs:"; cat jest.config.cjs; fi
+          if [ -f jest.config.js ]; then echo "Found jest.config.js:"; cat jest.config.js; fi
+          echo "package.json test script:"
+          node -e "console.log(require('./package.json').scripts.test)"
+
+      - name: Run Jest with explicit config (force)
+        run: |
+          npx jest --config=jest.config.cjs --runInBand --showConfig
